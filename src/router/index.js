@@ -3,6 +3,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 // Import your components
 import Home from '@/components/Home.vue';
+import Protected from '@/components/Protected.vue';
 
 
 
@@ -14,6 +15,11 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/protected',
+      name: 'protected',
+      component: Protected
     }
   ]
 })
