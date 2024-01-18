@@ -7,8 +7,48 @@
     Si no es posible obtener una clave de API, puedes encontrar una de ejemplo en Google Classroom. Para más información sobre la API de TheMovieDB.com, puedes consultar la documentación oficial en <a href="https://developers.themoviedb.org/3/getting-started/introduction" target="_blank">https://developers.themoviedb.org/3/getting-started/introduction</a>.
 </p>
 <p>
+    A la hora de hacer una petición con una clave API, podemos hacerlo de dos formas. La primera es añadiendo la clave API en la URL de la petición. La segunda es añadiendo la clave API en el header de la petición. La diferencia entre ambas es que la primera es más sencilla de implementar, pero la clave API se puede ver en la URL. La segunda es más compleja de implementar, pero la clave API no se puede ver en la URL.
+</p>
+<p class="alert alert-info">
+    En términos de seguridad, enviar la clave API en el header de la petición es más seguro que enviarla en la URL de la petición. Sin embargo, si la clave API se envía en la URL de la petición, es recomendable utilizar HTTPS en lugar de HTTP.
+</p>
+<p>
+    En este ejemplo, se utiliza la primera opción. Para ello, al pulsar el botón, se ejecuta la función <mark>getMoviesUrlApi</mark> que hace una petición a la API de TheMovieDB.com y guarda los resultados en la variable movies.
+</p>
+<p class="alert alert-light">
+    <code>
+        const getMoviesUrlApi = () => {<br>
+    fetch('https://api.themoviedb.org/3/movie/popular?api_key=' + apiKey.value)<br>
+        .then(response => response.json())<br>
+        .then(data => movies.value = data.results)
+}
+    </code>
+</p>
+<p>
+    <h5>API Key</h5>
     <textarea v-model="apiKey" placeholder="API key" rows="1" cols="50"></textarea>
-    <button @click="getMovies">Get Movies</button>
+    <button @click="getMoviesUrlApi">Get Movies URL Api</button>
+</p>
+<p>
+    La segunda forma de hacer una petición a la API de TheMovieDB.com es añadiendo la clave API en el header de la petición. Para ello, debemos añadir un objeto con la clave API en el header de la petición. En este ejemplo, se utiliza la segunda opción. Para ello, al pulsar el botón, se ejecuta la función <mark>getMoviesHeaderApi</mark> que hace una petición a la API de TheMovieDB.com y guarda los resultados en la variable movies.   
+</p>
+<p class="alert alert-light">
+    <code>
+        const getMoviesHeaderApi = () => {<br>
+    fetch('https://api.themoviedb.org/3/movie/popular', {<br>
+        headers: {<br>
+            'Authorization': 'Bearer ' + bearerToken.value<br>
+        }<br>
+    })<br>
+        .then(response => response.json())<br>
+        .then(data => movies.value = data.results)
+}
+    </code>
+</p>
+<p>
+    <h5>API Key</h5>
+    <textarea v-model="bearerToken" placeholder="API key" rows="2" cols="80"></textarea>
+    <button @click="getMoviesHeaderApi">Get Movies Header API</button>
 </p>
 <div class="container">
     <div class="row">
@@ -24,9 +64,19 @@
 import { ref } from 'vue'
 
 const apiKey = ref('')
+const bearerToken = ref('')
 const movies = ref([])
-const getMovies = () => {
+const getMoviesUrlApi = () => {
     fetch('https://api.themoviedb.org/3/movie/popular?api_key=' + apiKey.value)
+        .then(response => response.json())
+        .then(data => movies.value = data.results)
+}
+const getMoviesHeaderApi = () => {
+    fetch('https://api.themoviedb.org/3/movie/popular', {
+        headers: {
+            'Authorization': 'Bearer ' + bearerToken.value
+        }
+    })
         .then(response => response.json())
         .then(data => movies.value = data.results)
 }
