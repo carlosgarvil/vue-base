@@ -3,11 +3,8 @@
     <div class="row">
       <header class="col-12">
         <h1>Plantilla para proyectos</h1>
-        <p>Este proyecto sirve como puento de partida para los proyectos donde se use Bootstrap y SASS.</p>
+        <p>Este repositorio sirve como punto de partida para los proyectos donde se use Bootstrap y SASS.</p>
       </header>
-    </div>
-    <div class="row login">
-      <input type="password" v-model="password" @keyup="checkPass" placeholder="Password" />
     </div>
     </div>
 </template>
@@ -15,17 +12,6 @@
 <script setup>
 import { ref } from 'vue'
 
-import {useRouter} from 'vue-router'
-const router = useRouter()
-
-const password = ref('')
-
-function checkPass() {
-  if( password.value == "1234")
-    router.push('protected')
-  else
-    console.log(password.value)
-}
 
 </script>
 

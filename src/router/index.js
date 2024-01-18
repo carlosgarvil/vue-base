@@ -3,8 +3,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 // Import your components
 import Home from '@/components/Home.vue';
-import Protected from '@/components/Protected.vue';
-
+import Component1 from '@/components/Component1.vue';
+import GetApi from '@/components/GetApi.vue';
 
 
 // Define your routes
@@ -17,9 +17,14 @@ const router = createRouter({
       component: Home
     },
     {
-      path: '/protected',
-      name: 'protected',
-      component: Protected
+      path: '/component1',
+      name: 'component1',
+      component: Component1
+    },
+    {
+      path: '/getapi',
+      name: 'getapi',
+      component: GetApi
     }
   ]
 })
