@@ -60,9 +60,9 @@
     <p class="text-center">
         <code>mounted() { console.log('Componente montado') }</code>
     </p>
-    <h3>Computed properties</h3>
+    <h3>Emits</h3>
     <p>
-        Sirve para definir propiedades computadas. En este caso, la propiedad computada <code>reversedMessage</code> se calcula a partir de la propiedad <code>message</code> que se encuentra en el script del componente. Puedes usar <code>computed</code> para definir propiedades computadas.
+        Sirve para emitir un evento desde el componente hijo al componente padre. En este caso, el componente hijo emite el evento <code>reverse-message</code> cuando el usuario hace click en el botón. Puedes usar <code>emits</code> para emitir un evento desde el componente hijo al componente padre.
     </p>
     <p class="text-center">
         <code>computed: { reversedMessage() { return this.message.split('').reverse().join('') } }</code>
