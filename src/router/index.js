@@ -3,9 +3,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 // Import your components
 import Home from '@/components/Home.vue';
-import Component1 from '@/components/Component1.vue';
-import GetApi from '@/components/GetApi.vue';
-
+import VueFundamentals from '@/components/VueFundamentals.vue';
+import Api from '@/components/Api.vue';
+import Components from '@/components/Components.vue';
+import Router from '@/components/Router.vue';
 
 // Define your routes
 const router = createRouter({
@@ -17,14 +18,24 @@ const router = createRouter({
       component: Home
     },
     {
-      path: '/component1',
-      name: 'component1',
-      component: Component1
+      path: '/fundamentals',
+      name: 'fundamentals',
+      component: VueFundamentals
     },
     {
-      path: '/getapi',
-      name: 'getapi',
-      component: GetApi
+      path: '/api',
+      name: 'api',
+      component: Api
+    },
+    {
+      path: '/components',
+      name: 'components',
+      component: Components
+    },
+    {
+      path: '/router',
+      name: 'router',
+      component: Router
     }
   ]
 })

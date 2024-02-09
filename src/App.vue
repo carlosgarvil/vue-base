@@ -14,8 +14,10 @@ import { RouterLink, RouterView } from "vue-router";
       />
       <nav class="col-10">
         <a><RouterLink to="/">Home</RouterLink></a>
-        <a><RouterLink to="/component1">Component1</RouterLink></a>
-        <a><RouterLink to="/getapi">Component2</RouterLink></a>
+        <a><RouterLink to="/fundamentals">VueJS fundamentals</RouterLink></a>
+        <a><RouterLink to="/api">API</RouterLink></a>
+        <a><RouterLink to="/components">Components</RouterLink></a>
+        <a><RouterLink to="/router">Router</RouterLink></a>
       </nav>
     </header>
 

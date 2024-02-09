@@ -1,6 +1,6 @@
 <template>
-    <h1>Component 1</h1>
-    <p>Este es el componente de ejemplo 1. Aquí puedes encontrar los fundamentos de VueJS.</p>
+    <h1>Vue fundamentals</h1>
+    <p>Este es un componente de ejemplo. Aquí puedes encontrar los fundamentos de VueJS.</p>
     <p>
         El texto se ha generado casi en su totalidad usando Copilot, corrigiendo levemente algunos errores y agregando algunos detalles para simplificar los ejemplos. Para una explicación más detallada de los fundamentos de VueJS, puedes consultar la documentación oficial de VueJS en <a href="https://v3.vuejs.org/guide/introduction.html" target="_blank">https://v3.vuejs.org/guide/introduction.html</a>.
     </p>
@@ -95,6 +95,7 @@
     <p class="text-center">
         <code>props: { message: String }</code>
     </p>
+
 
 
             
