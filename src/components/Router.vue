@@ -25,6 +25,26 @@
     </p>
     <h3>Router push</h3>
     <p>
-        TODO
+        Para navegar entre las distintas páginas de la aplicación, podemos usar el método <code>router.push</code>.
+    </p>
+
+    <p>
+        <button @click="goToHome" class="btn btn-primary">Ir a la página de Inicio</button>
     </p>
 </template>
+<script>
+import { useRouter } from 'vue-router'
+export default {
+  setup() {
+    const router = useRouter()
+
+    const goToHome = () => {
+      router.push('/')
+    }
+
+    return {
+      goToHome
+    }
+    }
+}
+</script>
