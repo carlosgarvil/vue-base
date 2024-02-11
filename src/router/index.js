@@ -7,6 +7,7 @@ import VueFundamentals from '@/components/VueFundamentals.vue';
 import Api from '@/components/Api.vue';
 import Components from '@/components/Components.vue';
 import Router from '@/components/Router.vue';
+import ProductDetail from '@/components/ProductDetail.vue';
 
 // Define your routes
 const router = createRouter({
@@ -36,6 +37,11 @@ const router = createRouter({
       path: '/router',
       name: 'router',
       component: Router
+    },
+    {
+      path: '/product/:id?',
+      name: 'product',
+      component: ProductDetail
     }
   ]
 })
