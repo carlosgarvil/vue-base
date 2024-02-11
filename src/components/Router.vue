@@ -37,9 +37,15 @@
         <code>/product/:id</code>
     </p>
     <p>
-        De esta forma, podemos acceder a la ruta <code>/product/1</code>,
-        <code>/product/2</code>, etc.
+        De esta forma, podemos acceder a la ruta <a href="/product/1">/product/1</a>,
+        <a href="/product/1">/product/2</a>, etc.
     </p>
+    <p class="text-center"> 
+        <input type="number" v-model="productId">
+        <button @click="$router.push('/product/'+productId)" class="btn btn-primary">
+            Ver producto con ID {{productId}}
+        </button>
+        </p>
     <p>
         Para acceder a los parámetros de la ruta, podemos usar el objeto
         <code>$route.params</code>.
@@ -57,27 +63,48 @@
   </p>
 
   <p>
-    <button @click="goToHome" class="btn btn-primary">
+    <button @click="$router.push('/')" class="btn btn-primary">
       Ir a la página de Inicio
     </button>
   </p>
+  <h3> $Router vs $Route</h3>
+  <p>
+    Si revisamos el archivo <code>ProductDetail.vue</code>, veremos que usa tanto $router como $route.
+  </p>
+  <p>$router y $route son dos propiedades proporcionadas por Vue Router en aplicaciones Vue.js, pero tienen propósitos diferentes.</p>
+<dl>
+    <dt class="text-center">$router</dt>
+    <dd>$router es una instancia de la clase VueRouter y proporciona métodos de navegación. Permite realizar acciones de navegación programáticamente, como cambiar la ruta, redirigir a otra página o realizar operaciones de navegación avanzadas.
+        Ejemplos de uso de $router incluyen <strong>$router.push(), $router.replace(), $router.go(), etc.</strong>
+        $router te permite interactuar con la instancia de Vue Router y realizar acciones de navegación desde cualquier parte de tu aplicación.</dd>
+        <dt class="text-center">$route</dt>
+    <dd >  $route es una propiedad que contiene información sobre la ruta actual. Proporciona acceso a los parámetros de la ruta, la consulta (query) de la URL, el nombre de la ruta, entre otros detalles de la ruta actual.
+        $route es de solo lectura y se utiliza para acceder a información sobre la ruta actual desde cualquier componente sin necesidad de pasarla como prop o utilizar eventos.</dd>
+</dl>
+    
+          
   
 </template>
-<script>
-import { useRouter} from "vue-router";
-
-export default {
-  setup() {
-    const router = useRouter();
-    
-    const goToHome = () => {
-      router.push("/");
-    };
-
-    return {
-      goToHome,
-    };
-  },
-};
+<script setup>
+import { ref } from "vue";
+const productId = ref(1);
 
 </script>
+<style scoped>
+  h1 {
+    text-align: center;
+  }
+  h3 {
+    margin-top: 4rem;
+    text-decoration: underline;
+  }
+  p {
+    text-align: justify;
+  }
+  .text-center {
+    text-align: center;
+  }
+  a{
+    margin-left: 0;
+  }
+</style>

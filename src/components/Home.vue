@@ -3,14 +3,13 @@
     <div class="row">
       <header class="col-12">
         <h1><font-awesome-icon :icon="['fas', 'home']" /> Plantilla para proyectos</h1>
-        <p>Este repositorio sirve como punto de partida para los proyectos donde se use Bootstrap y SASS.</p>
+        <p>Este repositorio sirve como punto de partida para los proyectos donde se use Bootstrap, SASS y FontAwesome.</p>
       </header>
     </div>
     </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
 
 
 </script>

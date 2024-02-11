@@ -12,9 +12,13 @@
     </div>
     <div class="row" v-else>
         <p class="alert alert-danger">No se ha encontrado el producto. Modifique la URL e incluya /product/id para acceder a un producto.</p>
-        <button @click="$router.push('/')" class="btn btn-primary">
-            Ir a la página de Inicio
-        </button>
+        <p class="text-center"> 
+        <input type="number" v-model="productId">
+        <a :href="`product/${productId}`" class="btn btn-primary">
+            Ver producto {{ productId }}
+        </a>
+        </p>
+        
   </div>
     </div>
 </template>
@@ -22,9 +26,12 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
+
 const $route = useRoute();
 
-const product = ref({});
+const productId = ref(1);
+const product = ref([]);
+
 onMounted(async () => {
   const response = await fetch(
     "https://fakestoreapi.com/products/" + $route.params.id
@@ -33,4 +40,5 @@ onMounted(async () => {
   product.value = data;
 });
 </script>
-<style scoped></style>
+<style scoped>
+</style>
