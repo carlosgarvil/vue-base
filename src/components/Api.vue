@@ -15,15 +15,15 @@
 <p>
     En este ejemplo, se utiliza la primera opción. Para ello, al pulsar el botón, se ejecuta la función <mark>getMoviesUrlApi</mark> que hace una petición a la API de TheMovieDB.com y guarda los resultados en la variable movies.
 </p>
-<p class="alert alert-light">
-    <code>
+<code-highlight language="javascript">
+    <pre>
         const getMoviesUrlApi = () => {<br>
     fetch('https://api.themoviedb.org/3/movie/popular?api_key=' + apiKey.value)<br>
         .then(response => response.json())<br>
         .then(data => movies.value = data.results)
 }
-    </code>
-</p>
+    </pre>
+</code-highlight>
 <p>
     <h5>API Key</h5>
     <textarea v-model="apiKey" placeholder="API key" rows="1" cols="50"></textarea>
@@ -32,19 +32,21 @@
 <p>
     La segunda forma de hacer una petición a la API de TheMovieDB.com es añadiendo la clave API en el header de la petición. Para ello, debemos añadir un objeto con la clave API en el header de la petición. En este ejemplo, se utiliza la segunda opción. Para ello, al pulsar el botón, se ejecuta la función <mark>getMoviesHeaderApi</mark> que hace una petición a la API de TheMovieDB.com y guarda los resultados en la variable movies.   
 </p>
-<p class="alert alert-light">
-    <code>
-        const getMoviesHeaderApi = () => {<br>
-    fetch('https://api.themoviedb.org/3/movie/popular', {<br>
-        headers: {<br>
-            'Authorization': 'Bearer ' + bearerToken.value<br>
-        }<br>
-    })<br>
-        .then(response => response.json())<br>
+
+<code-highlight language="javascript">
+    <pre>
+        const getMoviesHeaderApi = () => {
+    fetch('https://api.themoviedb.org/3/movie/popular', {
+        headers: {
+            'Authorization': 'Bearer ' + bearerToken.value
+        }
+    })
+        .then(response => response.json())
         .then(data => movies.value = data.results)
 }
-    </code>
-</p>
+      module.exports = isPalindrome;
+    </pre>
+</code-highlight>
 <p>
     <h5>API Key</h5>
     <textarea v-model="bearerToken" placeholder="API key" rows="2" cols="80"></textarea>
@@ -62,6 +64,10 @@
 </template>
 <script setup>
 import { ref } from 'vue'
+
+import CodeHighlight from "vue-code-highlight/src/CodeHighlight.vue";
+import "vue-code-highlight/themes/duotone-sea.css";
+import "vue-code-highlight/themes/window.css";
 
 const apiKey = ref('')
 const bearerToken = ref('')

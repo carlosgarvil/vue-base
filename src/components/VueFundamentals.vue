@@ -12,6 +12,9 @@
     <p class="text-center">
         <code>&lt;img v-bind:src="imageSrc" alt="Vue logo" class="logo col-2" width="125" height="125" /&gt;</code>
     </p>
+                
+            
+
     <p class="text-center">
         <code>&lt;img :src="imageSrc" alt="Vue logo" class="logo col-2" width="125" height="125" /&gt;</code>
     </p>
