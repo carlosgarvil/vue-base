@@ -19,6 +19,7 @@ import { RouterLink, RouterView } from "vue-router";
         <a><RouterLink to="/components">Components</RouterLink></a>
         <a><RouterLink to="/router">Router</RouterLink></a>
         <a><RouterLink to="/product">Get URL params</RouterLink></a>
+        <a><RouterLink to="/pinia">Pinia</RouterLink></a>
       </nav>
     </header>
 

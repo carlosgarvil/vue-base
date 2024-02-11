@@ -8,6 +8,7 @@ import Api from '@/components/Api.vue';
 import Components from '@/components/Components.vue';
 import Router from '@/components/Router.vue';
 import ProductDetail from '@/components/ProductDetail.vue';
+import Pinia from '@/components/Pinia.vue';
 
 // Define your routes
 const router = createRouter({
@@ -42,6 +43,11 @@ const router = createRouter({
       path: '/product/:id?',
       name: 'product',
       component: ProductDetail
+    },
+    {
+      path: '/pinia',
+      name: 'pinia',
+      component: Pinia
     }
   ]
 })
