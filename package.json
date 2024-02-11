@@ -13,6 +13,7 @@
     "@fortawesome/vue-fontawesome": "^3.0.5",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.2",
+    "pinia": "^2.1.7",
     "vue": "^3.3.4",
     "vue-code-highlight": "^0.7.8",
     "vue-router": "^4.2.5"
