@@ -9,7 +9,7 @@ const store = useUserStore();
     <header class="row">
       <img
         alt="Vue logo"
-        class="logo col-2"
+        class="logo col-1"
         src="./assets/logo.svg"
         width="125"
         height="125"
@@ -23,7 +23,7 @@ const store = useUserStore();
         <a><RouterLink to="/product">Get URL params</RouterLink></a>
         <a><RouterLink to="/pinia">Pinia</RouterLink></a>
       </nav>
-      <div class="col-1" v-if="false">
+      <div class="col-2" v-if="false">
         <a v-if="store.user.username!=''" @click="store.logout">Logout</a>
         <a v-else><RouterLink to="/login">Login</RouterLink></a>
       </div>
@@ -42,6 +42,6 @@ header {
 
 .logo {
   display: block;
-  margin: 0 auto 2rem;
+  margin: 0 0 2rem;
 }
 </style>

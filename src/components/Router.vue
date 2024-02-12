@@ -32,17 +32,17 @@
     método <code>router.push</code>.
   </p>
   <div class="row">
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-3">
       <button @click="$router.push('/')" class="btn btn-primary">
-        Ir a la página de Acerca de
+        Ir a la página de Inicio
       </button>
     </div>
     <div class="col-12 col-md-6">
       <code-highlight language="html">
         <pre>
             &lt;button @click="$router.push('/')" class="btn btn-primary"&gt;
-        Ir a la página principal
-        &lt;/button&gt;
+              Ir a la página principal
+            &lt;/button&gt;
         </pre>
       </code-highlight>
     </div>
@@ -88,8 +88,8 @@
     Si revisamos el archivo <code>ProductDetail.vue</code>, veremos que usa
     tanto $router como $route.
   </p>
-  <p>
-    $router y $route son dos propiedades proporcionadas por Vue Router en
+  <p class="alert alert-warning">
+    <strong>$router y $route</strong> son dos propiedades proporcionadas por Vue Router en
     aplicaciones Vue.js, pero tienen propósitos diferentes.
   </p>
   <dl>

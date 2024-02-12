@@ -44,7 +44,6 @@
         .then(response => response.json())
         .then(data => movies.value = data.results)
 }
-      module.exports = isPalindrome;
     </pre>
 </code-highlight>
 <p>
