@@ -1,5 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
+import { useUserStore } from "@/store/userStore";
+const store = useUserStore();
 </script>
 
 <template>
@@ -12,7 +14,7 @@ import { RouterLink, RouterView } from "vue-router";
         width="125"
         height="125"
       />
-      <nav class="col-10">
+      <nav class="col-9">
         <a><RouterLink to="/">Home</RouterLink></a>
         <a><RouterLink to="/fundamentals">VueJS fundamentals</RouterLink></a>
         <a><RouterLink to="/api">API</RouterLink></a>
@@ -21,6 +23,10 @@ import { RouterLink, RouterView } from "vue-router";
         <a><RouterLink to="/product">Get URL params</RouterLink></a>
         <a><RouterLink to="/pinia">Pinia</RouterLink></a>
       </nav>
+      <div class="col-1" v-if="false">
+        <a v-if="store.user.username!=''" @click="store.logout">Logout</a>
+        <a v-else><RouterLink to="/login">Login</RouterLink></a>
+      </div>
     </header>
 
     <main>

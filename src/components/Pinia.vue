@@ -76,29 +76,14 @@
         nombre, el email y el avatar del usuario. Luego, podemos usar este
         objeto en cualquier componente de la aplicación.
     </p>
-<h3>Insertar datos en Store</h3>
-<div class="row">
-    <div class="col-6">
-        <div class="form-floating mb-3">
-  <input type="text" class="form-control" id="floatingInput" placeholder="username" >
-  <label for="floatingInput">Username</label>
-</div>
 
-<div class="form-floating mb-3">
-  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" >
-  <label for="floatingInput">Email address</label>
-</div>
-    </div>
-    <div class="col-6">
-        <button type="button" @click="saveUserStore"  class="btn btn-primary">Save to Store</button>
-    </div>
-</div>
 <h3>Mostrar datos desde Store</h3>
-<button type="button" @click="getUserStore"  class="btn btn-primary">Get data from Store</button>
-
-<p>Username: {{ localUser.username }}</p>
-<p>eMail: {{ localUser.email }}</p>
-<p>Avatar: {{ localUser.avatar }}</p>
+<p>
+    En este ejemplo, los datos del usuario se almacenan en un Store. Para poder modificar los datos del usuario, se ha vinculado el input con los campos del usuario (mediante v-model). Si en el navegador está instalada la extensión de Vue DevTools, se puede ver el estado del Store y cómo se modifican los datos del usuario de forma reactiva.
+</p>
+<p>Username: <input type="text" v-model="store.user.username" ></p>
+<p>eMail: <input type="text" v-model="store.user.email" ></p>
+<p>Avatar: <img :src="store.user.avatar"></p>
 
 </template>
 
@@ -109,26 +94,5 @@ import "vue-code-highlight/themes/window.css";
 
 import { useUserStore } from "@/store/userStore";
 const store = useUserStore();
-
-import { ref, onMounted } from "vue";
-
-//create empy user object
-
-const localUser = storeToRefs(store.user);
-const getUserStore = () => {
-    localUser.username = store.user.username;
-    localUser.email = store.user.email;
-    localUser.avatar = store.user.avatar;
-}
-
-
-
-const saveUserStore = () => {
-    store.user = {
-        username: username.value,
-        email: email.value,
-        avatar: avatar.value
-    }
-}
 
 </script>
