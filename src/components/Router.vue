@@ -37,7 +37,7 @@
         Ir a la página de Inicio
       </button>
     </div>
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-9">
       <code-highlight language="html">
         <pre>
             &lt;button @click="$router.push('/')" class="btn btn-primary"&gt;
@@ -114,6 +114,7 @@
     </dd>
   </dl>
 </template>
+
 <script setup>
 import { ref } from "vue";
 const productId = ref(1);
@@ -122,6 +123,7 @@ import CodeHighlight from "vue-code-highlight/src/CodeHighlight.vue";
 import "vue-code-highlight/themes/duotone-sea.css";
 import "vue-code-highlight/themes/window.css";
 </script>
+
 <style scoped>
 h1 {
   text-align: center;

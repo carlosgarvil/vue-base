@@ -6,12 +6,14 @@
         <p>Este repositorio sirve como punto de partida para los proyectos donde se use Bootstrap, SASS y FontAwesome.</p>
       </header>
     </div>
+    <p>{{ route.query.cadena }}</p>
     </div>
 </template>
 
 <script setup>
-
-
+import { useRoute } from 'vue-router';
+const route = useRoute();
+// http://localhost:5173/?cadena=hola
 </script>
 
 <style lang="scss" scoped>
