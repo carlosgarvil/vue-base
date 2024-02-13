@@ -3,7 +3,7 @@
     <div class="row">
       <header class="col-12">
         <h1><font-awesome-icon :icon="['fas', 'home']" /> Plantilla para proyectos</h1>
-        <p>Este repositorio sirve como punto de partida para los proyectos donde se use Bootstrap, SASS y FontAwesome.</p>
+        <p>Este repositorio sirve como punto de partida para los proyectos donde se use Bootstrap, SASS, FontAwesome y Pinia.</p>
       </header>
     </div>
     <p>{{ route.query.cadena }}</p>
