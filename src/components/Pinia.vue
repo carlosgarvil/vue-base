@@ -81,9 +81,22 @@
 <p>
     En este ejemplo, los datos del usuario se almacenan en un Store. Para poder modificar los datos del usuario, se ha vinculado el input con los campos del usuario (mediante v-model). Si en el navegador está instalada la extensión de Vue DevTools, se puede ver el estado del Store y cómo se modifican los datos del usuario de forma reactiva.
 </p>
-<p>Username: <input type="text" v-model="store.user.username" ></p>
-<p>eMail: <input type="text" v-model="store.user.email" ></p>
-<p>Avatar: <img :src="store.user.avatar"></p>
+<div class="row">
+    <div class="col border">
+        <p>Username: <input type="text" v-model="store.user.username" ></p>
+        <p>eMail: <input type="text" v-model="store.user.email" ></p>
+        <p>Avatar: <img :src="store.user.avatar" class="border border-dark"></p>
+
+    </div>
+    <div class="col ms-3 border">
+        <h5>Estado del Store</h5>
+        <p>store.user.username: {{ store.user.username }}</p>
+        <p>store.user.email: {{ store.user.email }}</p>
+        <p>store.user.avatar: {{ store.user.avatar  }} </p>
+    
+    </div>
+
+</div>
 <h3>GlobalProperties</h3>
 <p>
     Otra opción que permite VueJS es añadir variables globales a toda la aplicación. Para ello, podemos hacer uso de las GlobalProperties.
