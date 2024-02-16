@@ -86,6 +86,8 @@ const getMoviesHeaderApi = () => {
         .then(data => movies.value = data.results)
 }
 
+import { useRoute } from 'vue-router';
+const route = useRoute();
 </script>
 
 <style lang="scss" scoped>

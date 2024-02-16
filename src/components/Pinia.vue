@@ -84,13 +84,95 @@
 <p>Username: <input type="text" v-model="store.user.username" ></p>
 <p>eMail: <input type="text" v-model="store.user.email" ></p>
 <p>Avatar: <img :src="store.user.avatar"></p>
+<h3>GlobalProperties</h3>
+<p>
+    Otra opción que permite VueJS es añadir variables globales a toda la aplicación. Para ello, podemos hacer uso de las GlobalProperties.
+</p>
+<p>
+    Si revisamos el archivo src/main.js, podemos ver la siguiente línea de código:
+</p>
+<p>
+    <pre>
+        <code>
+            app.config.globalProperties.$cart = [];
+        </code> 
+    </pre>
+</p>
+<p>
+    Una vez definida, dentro de nuestro componente podemos acceder a la variable <code>$cart</code> con el siguiente código:
+</p>
+<code-highlight language="javascript">
+    <pre>
+        
+        import { getCurrentInstance } from "vue";
+        const {proxy} = getCurrentInstance();
+        proxy.$cart.push(newProduct); // Añadir un nuevo producto al carrito
+    </pre>
+    </code-highlight>
+<p>
+    Podemos añadir más elementos a cart con el siguiente input de tipo número:
+</p>
+<div class="row">
+    <div class="col-6">
+        <div class="mb-3">
+            <label class="form-label" for="product_id">ID del producto</label>
+            <input id="product_id" type="number" v-model="newProduct.id" disabled class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="product_name">Nombre</label>
+            <input id="product_name" type="text" v-model="newProduct.name" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="product_price">Precio</label>
+            <input id="product_price" type="number" v-model="newProduct.price" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="product_iquantityd">ID del producto</label>
+            <input id="quantity" type="number" v-model="newProduct.quantity" class="form-control"/>
+        </div>
+
+
+
+        <button @click="addProduct()">Añadir al carrito</button>
+    </div>
+    <div class="col-6">
+        <h3>Carrito</h3>
+        <ul>
+            <li v-for="item in $cart" :key="item.id">{{ item }}</li>
+        </ul>
+    </div>
+</div>
 
 </template>
 
 <script setup>
+import { ref, getCurrentInstance, onMounted } from "vue";
 import CodeHighlight from "vue-code-highlight/src/CodeHighlight.vue";
 import "vue-code-highlight/themes/duotone-sea.css";
 import "vue-code-highlight/themes/window.css";
+
+const {proxy} = getCurrentInstance();
+
+const newProduct = ref({id: 0, name: "", price: 0, quantity: 0});
+
+const addProduct = () => {
+    proxy.$cart.push(newProduct);
+    newProduct.value = {id: getMaxId()+1, name: "", price: 0, quantity: 0};
+};
+
+onMounted(() => {
+    newProduct.value.id = getMaxId() +1;
+});
+
+const getMaxId = () => {
+    let maxId = 1;
+    proxy.$cart.forEach((item) => {
+        if (item.id > maxId) {
+            maxId = item.id;
+        }
+    });
+    return maxId;
+};
 
 import { useUserStore } from "@/store/userStore";
 const store = useUserStore();

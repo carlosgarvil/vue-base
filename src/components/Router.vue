@@ -66,9 +66,9 @@
     etc.
   </p>
   <p class="text-center">
-    <input type="number" v-model="productId" />
+    <input type="search"  v-model="productId" />
     <button
-      @click="$router.push('/product/' + productId)"
+      @click="$router.push('/buscador?cadena=' + productId)"
       class="btn btn-primary"
     >
       Ver producto con ID {{ productId }}
